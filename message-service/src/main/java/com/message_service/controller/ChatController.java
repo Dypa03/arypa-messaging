@@ -24,7 +24,6 @@ public class ChatController {
         message.setChatId(messageDTO.getChatId());
 
         messageRepository.save(message);
-
         messagingTemplate.convertAndSend("/topic/messages/" + message.getChatId(), message);
 
 

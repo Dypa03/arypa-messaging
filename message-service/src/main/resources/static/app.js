@@ -1,4 +1,5 @@
 var stompClient = null;
+var currentChatId = null;
 
 var username = generateRandomUsername();
 
@@ -10,12 +11,14 @@ function generateRandomUsername() {
     return adjective + noun + Math.floor(Math.random() * 1000);
 }
 
-function connect() {
+function connect(chatId) {
+    console.log(chatId)
+    currentChatId = chatId
     var socket = new SockJS('/ws');
     stompClient = Stomp.over(socket);
     stompClient.connect({}, function(frame) {
         console.log('Connected: ' + frame);
-        stompClient.subscribe('/topic/messages/5', function (message) {
+        stompClient.subscribe('/topic/messages/' + currentChatId, function (message) {
             showMessage(JSON.parse(message.body));
         });
     });
@@ -23,7 +26,7 @@ function connect() {
 
 function sendMessage() {
     var messageContent = document.getElementById('message-input').value;
-    stompClient.send("/app/chat", {}, JSON.stringify({'content': messageContent, 'senderId': 1, 'chatId': 5, 'username': username}));
+    stompClient.send("/app/chat", {}, JSON.stringify({'content': messageContent, 'senderId': 1, 'chatId': currentChatId, 'username': username}));
     document.getElementById('message-input').value = ''
 }
 

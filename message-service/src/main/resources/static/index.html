@@ -4,7 +4,13 @@
     <title>Demo Chatroom</title>
     <link rel="stylesheet" type="text/css" href="main.css">
 </head>
-<body onload="connect()">
+<body>
+
+
+    <input type="text" name="chatId" id="chatId">
+    <button onclick='connect(document.getElementById("chatId").value)'>Choose</button>
+
+
 <div id="chatroom">
     <h1>Chatroom</h1>
     <div id="messages"></div>
