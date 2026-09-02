@@ -1,14 +1,10 @@
 package com.auth_service.model.entity;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.CreationTimestamp;
-
-import java.time.LocalDateTime;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -17,8 +13,8 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "users")
-public class User {
-    @Id
+public class UserInfo {
+    /*@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id", unique = true, nullable = false)
     private Long id;
@@ -37,5 +33,13 @@ public class User {
     private LocalDateTime createdAt;
 
     // for spring security authentication, it may be removed.
-    private String role;
+    private String role;*/
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    private String name;
+    private String email;
+    private String password;
+    private String roles;
 }
