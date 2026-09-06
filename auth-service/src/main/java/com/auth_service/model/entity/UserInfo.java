@@ -1,17 +1,12 @@
 package com.auth_service.model.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
-
 @Entity
+@Data
 @Table(name = "users")
 public class UserInfo {
     /*@Id
