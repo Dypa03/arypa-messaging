@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="config" />
+        <module name="eureka-server" />
       </profile>
       <profile name="Annotation profile for demo" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
@@ -23,6 +24,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="applicationconfig" target="22" />
+      <module name="discovery" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -30,6 +32,8 @@
       <module name="auth-service" options="-parameters" />
       <module name="config" options="-parameters" />
       <module name="demo" options="-parameters" />
+      <module name="discovery" options="-parameters" />
+      <module name="eureka-server" options="-parameters" />
       <module name="message-service" options="-parameters" />
     </option>
   </component>
